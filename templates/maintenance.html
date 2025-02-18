@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maintenance</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Maintenance</h2>
+    <nav>
+        <a href="{{ url_for('system_settings') }}">System Settings</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="maintenance-options">
+        <p>Select a maintenance option from the menu above.</p>
+    </div>
+</body>
+</html>

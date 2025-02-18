@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Membership Management</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Membership Management</h2>
+    <nav>
+        <a href="{{ url_for('add_membership') }}">Add New Membership</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="membership-management">
+        <h3>Current Memberships</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Member Name</th>
+                    <th>Start Date</th>
+                    <th>Duration (days)</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for member in members %}
+                <tr>
+                    <td>{{ member.name }}</td>
+                    <td>{{ member.start_date }}</td>
+                    <td>{{ member.duration }}</td>
+                    <td>{{ 'Active' if member.active else 'Inactive' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

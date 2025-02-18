@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Issue Book</title>
+</head>
+<body>
+    <h2>Issue a Book</h2>
+    <form method="POST">
+        <label>Book Name:</label>
+        <select name="book_name" required>
+            {% for book in books %}
+                {% if book.available %}
+                    <option value="{{ book.name }}">{{ book.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select><br><br>
+        <label>Member Name:</label>
+        <input type="text" name="member_name" required><br><br>
+        <button type="submit">Issue Book</button>
+    </form>
+    <br>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

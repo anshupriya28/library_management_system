@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Report</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Book Report</h2>
+    <nav>
+        <a href="{{ url_for('reports') }}">Back to Reports</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="book-report">
+        <h3>All Books</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.serial }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.media_type }}</td>
+                    <td class="{% if book.available %}available{% else %}unavailable{% endif %}">
+                        {{ '<thinking>
+The reports.html template has been successfully created. Next, I'll create the book_report.html template which will display detailed information about all books in the library.
+</thinking>
+
+<create_file>
+<path>c:/Users/user/Desktop/Library Management System/templates/book_report.html</path>
+<content>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Report</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Book Report</h2>
+    <nav>
+        <a href="{{ url_for('reports') }}">Back to Reports</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="book-report">
+        <h3>All Books</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                <tr>
+                    <td>{{ book.serial }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.media_type }}</td>
+                    <td>{{ 'Available' if book.available else 'Issued' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

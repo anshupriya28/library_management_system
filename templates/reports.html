@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Reports</h2>
+    <nav>
+        <a href="{{ url_for('book_report') }}">Book Report</a>
+        <a href="{{ url_for('transaction_report') }}">Transaction Report</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="reports-overview">
+        <h3>Available Reports</h3>
+        <ul>
+            <li>Book Report - View all books and their status</li>
+            <li>Transaction Report - View all transactions</li>
+        </ul>
+    </div>
+</body>
+</html>

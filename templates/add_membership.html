@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Membership</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Add New Membership</h2>
+    <nav>
+        <a href="{{ url_for('membership') }}">Back to Membership Management</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="add-membership">
+        <form method="POST">
+            <label for="member_name">Member Name:</label>
+            <input type="text" id="member_name" name="member_name" required>
+            
+            <label for="duration">Membership Duration:</label>
+            <select id="duration" name="duration" required>
+                <option value="6_months">6 Months</option>
+                <option value="1_year">1 Year</option>
+                <option value="2_years">2 Years</option>
+            </select>
+            
+            <button type="submit">Add Membership</button>
+        </form>
+    </div>
+</body>
+</html>

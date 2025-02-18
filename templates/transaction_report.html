@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transaction Report</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Transaction Report</h2>
+    <nav>
+        <a href="{{ url_for('reports') }}">Back to Reports</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="transaction-report">
+        <h3>All Transactions</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Book</th>
+                    <th>Member</th>
+                    <th>Issue Date</th>
+                    <th>Return Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.book }}</td>
+                    <td>{{ transaction.member }}</td>
+                    <td>{{ transaction.issue_date }}</td>
+                    <td>{{ transaction.return_date }}</td>
+                    <td>{{ 'Returned' if not transaction.issued else 'Issued' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

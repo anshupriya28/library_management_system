@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Membership</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Update Membership</h2>
+    <nav>
+        <a href="{{ url_for('membership') }}">Back to Membership Management</a>
+        <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </nav>
+    <div class="update-membership">
+        <form method="POST">
+            <label for="member_id">Select Member:</label>
+            <select id="member_id" name="member_id" required>
+                {% for member in members %}
+                <option value="{{ loop.index0 }}">{{ member.name }}</option>
+                {% endfor %}
+            </select>
+            
+            <label>Action:</label>
+            <div class="action-options">
+                <label>
+                    <input type="radio" name="action" value="extend" required> Extend Membership
+                </label>
+                <label>
+                    <input type="radio" name="action" value="cancel" required> Cancel Membership
+                </label>
+            </div>
+            
+            <div class="duration-options" id="durationOptions">
+                <label for="duration">Extension Duration:</label>
+                <select id="duration" name="duration">
+                    <option value="6_months">6 Months</option>
+                    <option value="1_year">1 Year</option>
+                    <option value="2_years">2 Years</option>
+                </select>
+            </div>
+            
+            <button type="submit">Update Membership</button>
+        </form>
+    </div>
+    <script>
+        const actionOptions = document.querySelectorAll('input[name="action"]');
+        const durationOptions = document.getElementById('durationOptions');
+        
+        actionOptions.forEach(option => {
+            option.addEventListener('change', () => {
+                durationOptions.style.display = option.value === 'extend' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

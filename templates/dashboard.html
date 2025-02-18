@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Welcome to the Library Dashboard</h2>
+    <nav class="dashboard-nav">
+        {% if role == 'admin' %}
+            <a href="{{ url_for('maintenance') }}" class="nav-link">Maintenance</a>
+            <a href="{{ url_for('user_management') }}" class="nav-link">User Management</a>
+            <a href="{{ url_for('add_book') }}" class="nav-link">Add Book</a>
+        {% endif %}
+        <a href="{{ url_for('reports') }}" class="nav-link">Reports</a>
+        <a href="{{ url_for('membership') }}" class="nav-link">Membership</a>
+        <a href="{{ url_for('issue_book') }}" class="nav-link">Issue Book</a>
+        <a href="{{ url_for('return_book') }}" class="nav-link">Return Book</a>
+        <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+    </nav>
+    <div class="dashboard-content">
+        <p>Select an option from the navigation menu above.</p>
+    </div>
+</body>
+</html>
